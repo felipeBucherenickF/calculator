@@ -45,6 +45,7 @@ const reset = () => {
   firstNumber = "";
   secondNumber = "";
   operator = "";
+  result = "";
 };
 
 const display = document.querySelector(".display");
@@ -52,25 +53,52 @@ const display = document.querySelector(".display");
 /* == OPERATIONS ========================================================*/
 const divideButton = document.querySelector("#divide-button");
 divideButton.addEventListener("click", () => {
+  if (secondNumber) {
+    result = operate(firstNumber, secondNumber, operator);
+    firstNumber = result;
+    display.value = result;
+    operator = "/";
+  }
   operator = "/";
 });
 const multiplyButton = document.querySelector("#multiply-button");
 multiplyButton.addEventListener("click", () => {
+  if (secondNumber) {
+    result = operate(firstNumber, secondNumber, operator);
+    firstNumber = result;
+    display.value = result;
+    operator = "*";
+  }
   operator = "*";
 });
 const substractButton = document.querySelector("#substract-button");
 substractButton.addEventListener("click", () => {
+  if (secondNumber) {
+    result = operate(firstNumber, secondNumber, operator);
+    firstNumber = result;
+    display.value = result;
+    operator = "-";
+  }
   operator = "-";
 });
 const addButton = document.querySelector("#add-button");
 addButton.addEventListener("click", () => {
+  if (secondNumber) {
+    result = operate(firstNumber, secondNumber, operator);
+    firstNumber = result;
+    display.value = result;
+    operator = "+";
+  }
   operator = "+";
 });
 const equalButton = document.querySelector("#equal-button");
 equalButton.addEventListener("click", () => {
-  const result = operate(firstNumber, secondNumber, operator);
+  result = operate(firstNumber, secondNumber, operator);
   display.value = result;
-  console.log(result);
+});
+const clearButton = document.querySelector("#clear-button");
+clearButton.addEventListener("click", () => {
+  display.value = "";
   reset();
 });
 
@@ -92,7 +120,7 @@ oneButton.addEventListener("click", (event) => {
   if (!firstNumber || !operator) {
     firstNumber = firstNumber + event.target.value;
     display.value = firstNumber;
-  } else {
+  } else if (!secondNumber || !operator) {
     secondNumber += event.target.value;
     display.value = secondNumber;
   }
@@ -102,7 +130,7 @@ twoButton.addEventListener("click", (event) => {
   if (!firstNumber || !operator) {
     firstNumber = firstNumber + event.target.value;
     display.value = firstNumber;
-  } else {
+  } else if (!secondNumber || !operator) {
     secondNumber += event.target.value;
     display.value = secondNumber;
   }
@@ -112,7 +140,7 @@ threeButton.addEventListener("click", (event) => {
   if (!firstNumber || !operator) {
     firstNumber = firstNumber + event.target.value;
     display.value = firstNumber;
-  } else {
+  } else if (!secondNumber || !operator) {
     secondNumber += event.target.value;
     display.value = secondNumber;
   }
@@ -122,7 +150,7 @@ fourButton.addEventListener("click", (event) => {
   if (!firstNumber || !operator) {
     firstNumber = firstNumber + event.target.value;
     display.value = firstNumber;
-  } else {
+  } else if (!secondNumber || !operator) {
     secondNumber += event.target.value;
     display.value = secondNumber;
   }
@@ -132,7 +160,7 @@ fiveButton.addEventListener("click", (event) => {
   if (!firstNumber || !operator) {
     firstNumber = firstNumber + event.target.value;
     display.value = firstNumber;
-  } else {
+  } else if (!secondNumber || !operator) {
     secondNumber += event.target.value;
     display.value = secondNumber;
   }
@@ -142,7 +170,7 @@ sixButton.addEventListener("click", (event) => {
   if (!firstNumber || !operator) {
     firstNumber = firstNumber + event.target.value;
     display.value = firstNumber;
-  } else {
+  } else if (!secondNumber || !operator) {
     secondNumber += event.target.value;
     display.value = secondNumber;
   }
@@ -152,7 +180,7 @@ sevenButton.addEventListener("click", (event) => {
   if (!firstNumber || !operator) {
     firstNumber = firstNumber + event.target.value;
     display.value = firstNumber;
-  } else {
+  } else if (!secondNumber || !operator) {
     secondNumber += event.target.value;
     display.value = secondNumber;
   }
@@ -162,7 +190,7 @@ eightButton.addEventListener("click", (event) => {
   if (!firstNumber || !operator) {
     firstNumber = firstNumber + event.target.value;
     display.value = firstNumber;
-  } else {
+  } else if (!secondNumber || !operator) {
     secondNumber += event.target.value;
     display.value = secondNumber;
   }
@@ -172,7 +200,7 @@ nineButton.addEventListener("click", (event) => {
   if (!firstNumber || !operator) {
     firstNumber = firstNumber + event.target.value;
     display.value = firstNumber;
-  } else {
+  } else if (!secondNumber || !operator) {
     secondNumber += event.target.value;
     display.value = secondNumber;
   }
